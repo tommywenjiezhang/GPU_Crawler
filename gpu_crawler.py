@@ -1,6 +1,5 @@
 import scrapy
 from scrapy.crawler import CrawlerProcess
-import win32com.client as win32
 import os
 
 
