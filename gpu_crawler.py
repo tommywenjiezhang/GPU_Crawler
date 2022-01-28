@@ -22,9 +22,9 @@ class GPUSpider(scrapy.Spider):
         # get html element has the class of sku_item
         for gpu in response.css('li.sku-item'):
             yield {
-                'product_title': gpu.css('div.sku-title a::text').get(),
-                'product_price': gpu.css('div.priceView-customer-price span::text').get(),
-                'availability': gpu.xpath("//button[contains(@class, 'add-to-cart-button')]/@data-button-state").get()
+                'product_title': gpu.css('div.sku-title a::text').get(), # select div tag with css name of sku-title
+                'product_price': gpu.css('div.priceView-customer-price span::text').get(), # select div tag with css name of customer-price
+                'availability': gpu.xpath("//button[contains(@class, 'add-to-cart-button')]/@data-button-state").get() # select data-button-state attibute of add-to-cart-button
             }
         # click on the next page button
         next_page = response.css('a.sku-list-page-next').attrib['href']
